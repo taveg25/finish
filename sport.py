@@ -27,8 +27,8 @@ while True:
     #Выводим список 
     #(вариант еще получше)
     print('-'*40)
-    for x in best:
+    for k, x in enumerate(best, start=1):
         res, num, fam = x
-        text = f'{fam} {num} - {res}'
+        text = f'{k:2d}.{fam:12} {num:3d} - {res:6.2f}'
         print(text)
     print('-'*40)
