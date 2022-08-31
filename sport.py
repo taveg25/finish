@@ -24,6 +24,11 @@ while True:
     if len(best)>5:
         del best[-1]
     
-    #Выводим список (вариант получше)
+    #Выводим список 
+    #(вариант еще получше)
+    print('-'*40)
     for x in best:
-        print(x)
+        res, num, fam = x
+        text = f'{fam} {num} - {res}'
+        print(text)
+    print('-'*40)
