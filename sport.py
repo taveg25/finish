@@ -24,5 +24,6 @@ while True:
     if len(best)>5:
         del best[-1]
     
-    #Выводим список
-    print(best)
+    #Выводим список (вариант получше)
+    for x in best:
+        print(x)
