@@ -6,11 +6,7 @@ import get
 BEST_COUNT = 5
 best = []
 
-while True:
-    #Ввод данных о спортсмене
-    person = get.input_person_kbd('КОНЕЦ')
-    if person is None:
-        break
+for person in get.all_persons_kbd():
     
     #Добавляем спортсмена в список
     best.append(person)
@@ -22,6 +18,9 @@ while True:
     
     #Удаляем лишний элемент
     if len(best) > BEST_COUNT:
+        r, n, f = best[-1]
+        with open('persons.txt', 'at', encoding='utf-8') as trg:
+            print( f'{f}, {n}, {r:.2f}', file=trg)
         del best[-1]
     
     #Выводим список 
@@ -32,3 +31,11 @@ while True:
         text = f'{k:2d}.{fam:12} {num:3d} - {res:6.2f}'
         print(text)
     print('-'*40)
+    
+#Сохраним лучших в файл
+trg = open('best.txt', 'wt', encoding='utf-8')
+try:
+    for res, num, fam in best:
+        print(f'{fam}, {num}, {res:.2f}', file=trg)
+finally:
+    trg.close()

@@ -15,6 +15,13 @@ def input_person_kbd(final_mark):
     r = r.quantize(TEMPLATE)
     return (r, int(n), f)
 
+def all_persons_kbd():
+    while True:
+        p = input_person_kbd('КОНЕЦ')
+        if p is None:
+            break
+        yield p
+        
 def check_equals(people):
     iterator = iter(people)
     x = next(iterator)
