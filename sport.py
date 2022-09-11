@@ -20,7 +20,7 @@ for person in get.all_persons_kbd():
     if len(best) > BEST_COUNT:
         r, n, f = best[-1]
         with open('persons.txt', 'at', encoding='utf-8') as trg:
-            print( f'{f}, {n}, {r:.2f}', file=trg)
+            print( f'{f},{n},{r:.2f}', file=trg)
         del best[-1]
     
     #Выводим список 
@@ -36,6 +36,6 @@ for person in get.all_persons_kbd():
 trg = open('best.txt', 'wt', encoding='utf-8')
 try:
     for res, num, fam in best:
-        print(f'{fam}, {num}, {res:.2f}', file=trg)
+        print(f'{fam},{num},{res:.2f}', file=trg)
 finally:
     trg.close()
