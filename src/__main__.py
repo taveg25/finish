@@ -8,7 +8,7 @@ import json
 import get
 logging.basicConfig(level=logging.DEBUG)
 
-from myvideo import initialize, finalize
+from myvideo import initialize, finalize, frame_box
 
 BEST_COUNT = 5
 best = []
@@ -25,14 +25,7 @@ try:
             result = qrDecoder.detectAndDecode(image)
             data, box, corrected_image = result
             if len(data) > 0:
-                n = len(box)
-                for k in range(0,n):
-                    a = tuple(box[k][0])
-                    if k+1>=n:
-                        b = tuple(box[0][0])
-                    else:
-                        b = tuple(box[k+1][0])
-                    cv2.line(image, a, b, (0, 255, 0))
+                frame_box(box,image)
                 if data == data_1:
                     print('Повтор спортсмена')
                     continue
