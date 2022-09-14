@@ -56,6 +56,7 @@ def video(BEST_COUNT=BEST_COUNT):
                     
                 cv2.imshow('My WEB camera', image)
             if cv2.waitKey(1) == 27:
+                print('esc')
                 break
     finally:
         finalize(cap)
